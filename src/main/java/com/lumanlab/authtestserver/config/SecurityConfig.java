@@ -45,7 +45,7 @@ public class SecurityConfig {
                 .authorizeRequests()
                 .antMatchers(HttpMethod.POST, BasicAuthenticationExclusionV1Uri.getUris())
                 .permitAll()
-                .antMatchers(HttpMethod.GET, "/test-db-console/**")
+                .antMatchers("/test-db-console/**")
                 .permitAll()
                 .anyRequest()
                 .authenticated()
