@@ -1,0 +1,36 @@
+spring:
+  h2:
+    console:
+      enabled: true
+      path: /test-console
+      settings:
+        web-allow-others: true
+
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      hibernate:
+        default_batch_fetch_size: 1000
+        format_sql: true
+    show-sql: true
+    open-in-view: false
+
+  datasource:
+    hikari:
+      username: sa
+      password:
+      jdbc-url: jdbc:h2:mem:test-auth-db
+      driver-class-name: org.h2.Driver
+
+  redis:
+    host: localhost
+    port: 6379
+
+  jackson:
+    default-property-inclusion: non_null
+
+jwt:
+  secret-key: polarlearn-api-admin-dev-secret-key-lumanlab-v1
+  access-token-expired-in: 30m
+  refresh-token-expired-in: 1d
