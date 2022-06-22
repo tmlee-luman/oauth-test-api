@@ -34,3 +34,8 @@ jwt:
   secret-key: polarlearn-api-admin-dev-secret-key-lumanlab-v1
   access-token-expired-in: 30m
   refresh-token-expired-in: 1d
+
+logging:
+  level:
+    org.hibernate.sql: DEBUG
+  config: classpath:log/logback-dev-config.xml
