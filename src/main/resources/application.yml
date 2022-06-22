@@ -2,7 +2,7 @@ spring:
   h2:
     console:
       enabled: true
-      path: /test-console
+      path: /test-db-console
       settings:
         web-allow-others: true
 

@@ -4,6 +4,7 @@ package com.lumanlab.authtestserver.security.filter;
 import com.lumanlab.authtestserver.infrastructure.jwt.JwtTokenHelper;
 import com.lumanlab.authtestserver.security.dto.AuthenticationMember;
 import com.lumanlab.authtestserver.security.exception.InvalidRequestTokenException;
+import com.lumanlab.authtestserver.security.url.BasicAuthenticationExclusionV1Uri;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -37,7 +38,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
         String authorizationHeader = request.getHeader(AUTHORIZATION_HEADER);
 
-        if (haveTokenInHeader(authorizationHeader)) {
+        if (haveTokenInHeader(authorizationHeader) && !BasicAuthenticationExclusionV1Uri.isExclusionUri(request.getRequestURI())) {
             String email = jwtTokenHelper.parseToken(extractAccessToken(authorizationHeader));
 
             setAuthenticationInSecurityContextHolder(
