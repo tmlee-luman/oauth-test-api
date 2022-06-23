@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 
 @Getter
-@Table(name = "member")
+@Table(name = "member", uniqueConstraints = @UniqueConstraint(columnNames = "email"))
 @Entity
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Member {

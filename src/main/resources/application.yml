@@ -1,14 +1,8 @@
 spring:
-  h2:
-    console:
-      enabled: true
-      path: /test-db-console
-      settings:
-        web-allow-others: true
 
   jpa:
     hibernate:
-      ddl-auto: create-drop
+      ddl-auto: update
     properties:
       hibernate:
         default_batch_fetch_size: 1000
@@ -18,10 +12,10 @@ spring:
 
   datasource:
     hikari:
-      username: sa
-      password:
-      jdbc-url: jdbc:h2:mem:test-auth-db
-      driver-class-name: org.h2.Driver
+      username: luman-dev
+      password: qwer1234!
+      jdbc-url: jdbc:mysql://localhost:3336/chatchat?characterEncoding=utf8
+      driver-class-name: com.mysql.cj.jdbc.Driver
 
   redis:
     host: localhost
